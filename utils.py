@@ -5,6 +5,8 @@ from models import Lead, db
 def generate_leads():
     names = ['John Doe', 'Jane Smith', 'Chris Johnson', 'Patricia Brown', 'Michael Williams']
     interests = ['Tecnologia', 'Saúde', 'Educação', 'Marketing', 'Design']
+    email = []
+    telefone = []
 
     for _ in range(100):
         name = random.choice(names)
@@ -12,8 +14,10 @@ def generate_leads():
         longitude = random.uniform(-180, 180)
         temperature = random.uniform(10, 40)
         interest = random.choice(interests)
+        email = random.choice(email)
+        telefone = random.choice(telefone)
 
-        lead = Lead(name, latitude, longitude, temperature, interest)
+        lead = Lead(name, latitude, longitude, temperature, interest,email, telefone)
         db.session.add(lead)
 
     db.session.commit()
