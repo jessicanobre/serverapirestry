@@ -9,7 +9,7 @@ class DatabaseConnection:
 
     def init_app(self, app):
         db.init_app(app)  # Associa o SQLAlchemy ao app Flask
-
+ 
     def get_db(self):
         return db
 

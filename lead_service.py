@@ -9,11 +9,13 @@ class LeadService:
 		self.db.session.add(lead)
 		self.db.session.commit()
 
-	def get_all_leads(self):
-		return Lead.query.all()
+	def get_all_leads(self, page=1, per_page=10):
+		 
+		 return Lead.query.paginate(page=page, per_page=per_page, error_out=False)
+		 
+    def get_lead_by_id(self, lead_id):
 
-	def get_lead_by_id(self, lead_id):
-		return Lead.query.get_or_404(lead_id)
+			return Lead.query.get_or_404(lead_id)
 
 	def update_lead(self, lead_id, name,  latitude, longitude, temperature, interest,  email, telefone):
 		lead = self.get_lead_by_id(lead_id)

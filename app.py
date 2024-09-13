@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Inicializando a conexão com o banco de dados
 db_connection = DatabaseConnection(app)
 #db_connection.initialize_db()
-db_connection.init_app(app)
+#db_connection.init_app(app)
 
 # Inicializando a API com as rotas
 api_handler = LeadAPIHandler(app, db_connection.get_db())
